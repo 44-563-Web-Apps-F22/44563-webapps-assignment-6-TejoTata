@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Bootstrap Starter</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"   
+          integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous"></script> 
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js" 
+          integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous"></script>
+      </head>
+ 
+<body>
+    <h1>Tejo Lakshmi Tata computes discounts</h1>
+    <h2>Getting input</h2>
+
+<form>
+    <label for="form1_age">Enter base amount </label>
+    <input type ="number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=20> <br>
+
+    <label for="form1_nick">Enter the discount percentage</label>
+    <input type ="number" id="form1_nick" name="form1_nick" value=10 autofocus> <br>
+
+    <input type="button" class=" btn btn-danger" onclick="discount()" value="Apply discount">
+</form>
+<p id="result">This text will be replaced </p>
+<form  >
+    <input type="radio" id="multiplication" name="multiply"  onclick="chooseOp()" value="times">
+    <label for="multiplication">*</label></br>
+  
+    <input type="radio" id="exponent" name="exponent" onclick="chooseOp()" value="exponent">
+    <label for="exponent">**</label></br>
+
+    <input type="radio" id="division" name="divide" value="divide"  onclick="chooseOp()" checked >
+    <label for="divide">/</label></br>
+  
+   
+    <input type="button" class="btn btn-success" onclick="chooseOp()" value="Get values from radio group">
+  </form>
+  <p id="result1">This text will be replaced </p>
+<script> 
+function discount(){
+    let result=""
+    console.log("Getting form values")
+    base = document.getElementById("form1_age").value
+    discountPercentage = document.getElementById("form1_nick").value
+    for(let i=1;i<6;i++)
+    {
+        result=result+((i*base)-(i*base)*discountPercentage/100)+" "
+    }
+
+    out = document.getElementById("result")
+    out.innerHTML = "Discounted amounts for "+base+" value are: "+result
+}
+function chooseOp(){
+    
+    base = document.getElementById("form1_age").value
+    discountPercentage = document.getElementById("form1_nick").value
+    div= document.getElementById("division").checked
+    exp= document.getElementById("exponent").checked
+    mul= document.getElementById("multiplication").checked
+    out = document.getElementById("result1")
+    if(div==true)
+    out.innerHTML =base/discountPercentage
+    if(exp==true)
+    out.innerHTML = base**discountPercentage
+     if(mul==true)
+    out.innerHTML = base*discountPercentage
+}
+
+
+</script>
+
+</body>
+</html>
