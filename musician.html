@@ -1,44 +1,68 @@
 <!DOCTYPE html>
 <html>
- 
+
 <body>
 
-<h2>Musician guess by Tejo Lakshmi Tata</h2>
+    <h2>Musician guess by Tejo Lakshmi Tata</h2>
 
-<form>
-    <label for="form1_age">Enter the secret
-        musician name</label>
-    <input type ="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="John Lennon"> <br>
+    <form>
+        <label for="form1_age">Enter the secret
+            musician name</label>
+        <input type="password" id="form1_age" name="form1_age" min=10 max=50 step=2 value="John Lennon"> <br>
 
-    <label for="form1_nick">Guess the musician”</label>
-    <input type ="text" id="form1_nick" name="form1_nick" autofocus> <br>
+        <label for="form1_nick">Guess the musician”</label>
+        <input type="text" id="form1_nick" name="form1_nick" autofocus> <br>
 
-    <input type="button" onclick="checkGuess()" value="Check the guess">
-</form>
+        <input type="button" onclick="checkGuess()" value="Check the guess">
+    </form>
 
 
-<p id="result">This text will be replaced </p>
+    <p id="result">This text will be replaced </p>
+    <div>
+        <img id="image" src="termites 1.jpg" class="rounded mx-auto d-block" onclick="swapImage()" alt="Termites"
+            style="width: 100px; height : 100px;">
+    </div>
 
-<script> 
-correct=0
-wrong=0
-function checkGuess(){
-    console.log("Getting form values")
-    age = document.getElementById("form1_age").value
-    nick = document.getElementById("form1_nick").value
-    
-    out = document.getElementById("result")
-    if(age==nick){
-        correct=correct+1
-        alert("You got it right")
-        out.innerHTML = "correct count-"+correct
-    } else {
-        wrong = wrong+1
-        alert("wrong musician")
-        out.innerHTML = "wrong count -"+worng
-    }
-}
-</script>
+    <script>
+        correct = 0
+        wrong = 0
+        useImage = 1
+
+        function checkGuess() {
+            console.log("Getting form values")
+            age = document.getElementById("form1_age").value
+            nick = document.getElementById("form1_nick").value
+
+            out = document.getElementById("result")
+            if (age == nick) {
+                correct = correct + 1
+                alert("You got it right")
+                out.innerHTML = "correct count-" + correct
+            } else {
+                wrong = wrong + 1
+                alert("wrong musician")
+                out.innerHTML = "wrong count -" + worng
+            }
+
+        }
+        function swapImage() {
+            switch (useImage) {
+                case 1://image.src = "termites 1.jpg" ;
+
+                    document.getElementById("image").src = "termites 1.jpg";
+                    useImage = useImage + 1
+                    break;
+                case 2: useImage = useImage + 1
+                    document.getElementById("image").src = "ant2.jpg";
+                    break;
+                case 3: useImage = 1
+                    document.getElementById("image").src = "treehopper.jpg";
+                    break;
+            }
+        }
+    </script>
+
 
 </body>
-</html> 
+
+</html>
