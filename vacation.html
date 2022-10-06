@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Vacation page</title>
+    </head>
+ 
+<body>
+
+  <h1>Tejo Lakshmi Tata selects a vacation </h1>
+        <div class="container">
+            <form>
+                <input type="checkbox" id="Air" name="topping1" value="True" checked>
+                <label for="Air">Travel by Air</label></br>
+    
+                <input type="checkbox" id="Domestic" name="topping2" value="True">
+                <label for="Domestic">Domestic</label></br>
+    
+                <input type="checkbox" id="Resort" name="topping3" value="False" checked>
+                <label for="Resort">Resort</label></br>
+    
+                <input type="button" onclick="selectVacation()" value="Select a vacation">
+            </form>
+            <p id="result"></p>
+            <br>
+        </div>
+        <br>
+        <div class="container">
+            <form>
+                <input type="text" id="CityName" value="city" name="city">
+                <label for="CityName">Enter a city</label></br>
+                <input type="text" id="Price" value=" " name="Price">
+                <label for="Price">Enter price</label></br>
+                <input type="button" onclick="updateVacation()" value="Update the vacation”">
+            </form>
+            <p id="result1"> </p>
+            <br>
+        </div>
+        <script>
+            function selectVacation() {
+                var my_vacation = {}
+                if (document.getElementById("Air").checked) {
+                    my_vacation.Air = true;
+    
+                }
+                else {
+                    my_vacation.Air = false;
+                }
+                result.innerHTML = result.innerHTML + "\n" + "Air: " + my_vacation.Air
+                if (document.getElementById("Domestic").checked) {
+                    my_vacation.Domestic = true;
+    
+                }
+                else {
+                    my_vacation.Domestic = false;
+                }
+                result.innerHTML = result.innerHTML + "\n" + "Domestic: " + my_vacation.Domestic
+                if (document.getElementById("Resort").checked) {
+                    my_vacation.Resort = true;
+    
+                }
+                else {
+                    my_vacation.Resort = false;
+                }
+                result.innerHTML = result.innerHTML + "\n" + "Resort: " + my_vacation.Resort
+    
+    
+            }
+            function updateVacation() {
+            var my_vacation = {}
+            city_1= document.getElementById("CityName").value
+            price1 = document.getElementById("Price").value
+            my_vacation["city"] = city_1
+            my_vacation["price"] = price1
+            document.getElementById("result1").innerHTML += "city: " + my_vacation["city"] + "\n"
+                + "price:" + my_vacation["price"]
+        }
+    </script>
+
+
+</body>
+</html>
